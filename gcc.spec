@@ -842,9 +842,6 @@ done)
 (cd libgfortran; for i in ChangeLog*; do
 	cp -p $i ../rpm.doc/gfortran/$i.libgfortran
 done)
-(cd gcc/objc; for i in README*; do
-	cp -p $i ../../rpm.doc/objc/$i.objc
-done)
 (cd libobjc; for i in README*; do
 	cp -p $i ../rpm.doc/objc/$i.libobjc
 done)
