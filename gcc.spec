@@ -1128,6 +1128,10 @@ rm -f %{buildroot}%{_prefix}/lib/lib*.so*
 rm -f %{buildroot}%{_prefix}/lib/lib*.a
 %endif
 
+# Remove files we don't ship
+rm -rf $FULLEPATH/install-tools
+rm -f %{_datadir}/locale/{de,fr}/LC_MESSAGES/libstdc++.mo
+
 # /\/\/\
 # native
 %else
@@ -1321,6 +1325,8 @@ fi
 %{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_version}/include/stdint-gcc.h
 
 %ifarch %{ix86} x86_64
+%dir %{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_version}/include-fixed
+%{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_version}/include-fixed/README
 %{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_version}/include/xmmintrin.h
 %{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_version}/include/emmintrin.h
 %{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_version}/include/pmmintrin.h
@@ -1664,6 +1670,7 @@ fi
 %dir %{_prefix}/lib/gcc/%{gcc_target_platform}
 %dir %{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_version}
 %{_prefix}/lib/gcc/%{gcc_target_platform}/%{gcc_version}/libasan.a
+%{_prefix}/lib/libasan_preinit.o
 ##%doc rpm.doc/changelogs/libsanitizer/ChangeLog* libsanitizer/LICENSE.TXT
 %endif
 
