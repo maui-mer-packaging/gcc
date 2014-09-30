@@ -849,9 +849,6 @@ done)
 (cd boehm-gc; for i in ChangeLog*; do
 	cp -p $i ../rpm.doc/boehm-gc/$i.gc
 done)
-(cd fastjar-%{fastjar_ver}; for i in ChangeLog* README*; do
-	cp -p $i ../rpm.doc/fastjar/$i.fastjar
-done)
 (cd libffi; for i in ChangeLog* README* LICENSE; do
 	cp -p $i ../rpm.doc/libffi/$i.libffi
 done)
